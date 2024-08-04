@@ -64,27 +64,22 @@ What you need to run this file:
   ```sh
   https://www.python.org/downloads/
   ```
+* The required pip dependencies stated above
 
 <!-- ROADMAP -->
 ## Roadmap
 
-- [ ] Fun
-- [ ] Customizable
+- [ ] Commands for standard CLI-Use
 - [ ] UI
     - [ ] Made with Tkinter
-    - [ ] A UI that looks similar to Windows
-    - [ ] Custom characters
+    - [ ] Displaz current directyor
+    - [ ] scrollable output field
+- [ ] Works only on Windows
 
 <!-- LICENSE -->
 ## License
 
-Distributed under the MIT License. All rights reserved.
-
-<!-- CONTACT -->
-## Contact
-
-Nico Kogler - kog220178@spengergasse.at <br/>
-Marko Dimitrijevic - dim2200138@spengergasse.at
+Distributed under the LGPL-2.1 (GNU Lesser General Public) License.
 
 
 
