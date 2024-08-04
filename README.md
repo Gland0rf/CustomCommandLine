@@ -19,6 +19,7 @@
 *** https://www.markdownguide.org/basic-syntax/#reference-style-links
 -->
 [![Contributors][contributors-shield]][contributors-url]
+[![Commits][commits-shield]][commits-url]
 [![Forks][forks-shield]][forks-url]
 [![Stargazers][stars-shield]][stars-url]
 [![Issues][issues-shield]][issues-url]
@@ -86,6 +87,8 @@ Distributed under the LGPL-2.1 (GNU Lesser General Public) License.
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
 [contributors-shield]: https://img.shields.io/github/contributors/Gland0rf/CustomCommandLine.svg?style=for-the-badge
 [contributors-url]: https://github.com/Gland0rf/CustomCommandLine/graphs/contributors
+[commits-shield]: https://raw.githubusercontent.com/your-username/your-repo/main/.github/badges/commit-badge.md
+[commits-url]: https://github.com/Gland0rf/CustomCommandLine/graphs/commit-activity
 [forks-shield]: https://img.shields.io/github/forks/Gland0rf/CustomCommandLine.svg?style=for-the-badge
 [forks-url]: https://github.com/Gland0rf/CustomCommandLine/network/members
 [stars-shield]: https://img.shields.io/github/stars/Gland0rf/CustomCommandLine.svg?style=for-the-badge
