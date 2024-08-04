@@ -23,7 +23,6 @@
 [![Stargazers][stars-shield]][stars-url]
 [![Issues][issues-shield]][issues-url]
 [![MIT License][license-shield]][license-url]
-[![LinkedIn][linkedin-shield]][linkedin-url]
 
 
 
@@ -93,7 +92,7 @@ Distributed under the LGPL-2.1 (GNU Lesser General Public) License.
 [stars-url]: https://github.com/Gland0rf/CustomCommandLine/stargazers
 [issues-shield]: https://img.shields.io/github/issues/Gland0rf/CustomCommandLine.svg?style=for-the-badge
 [issues-url]: https://github.com/Gland0rf/CustomCommandLine/issues
-[license-shield]: https://img.shields.io/github/license/Gland0rf/CustomCommandLine.svg?style=for-the-badge
+[license-shield]: https://img.shields.io/github/license/Gland0rf/CustomCommandLine.svg?
 [license-url]: https://github.com/Gland0rf/CustomCommandLine/blob/main/LICENSE
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
 [linkedin-url]: https://linkedin.com/in/linkedin_username
