@@ -7,7 +7,6 @@ import shutil
 import subprocess
 import json
 import datetime
-import pytz
 
 current_dir = "C:"
 
