@@ -1,5 +1,6 @@
 import tkinter as tk
 from cryptography.fernet import Fernet
+import humanize.filesize
 from tzlocal import get_localzone
 import os
 import re
@@ -7,8 +8,33 @@ import shutil
 import subprocess
 import json
 import datetime
+import humanize
+import commands.ls.ls_command as ls_command
 
-current_dir = "C:"
+current_dir = "C:\\Users\\nicok"
+
+def get_folder_size(start_path='.'):
+    total_size = 0
+    for dirpath, dirnames, filenames in os.walk(start_path):
+        for f in filenames:
+            fp = os.path.join(dirpath, f)
+            if not os.path.islink(fp):
+                try:
+                    total_size += os.path.getsize(fp)
+                except FileNotFoundError:
+                    pass
+    return total_size
+
+def parse_arguments(command):
+    arguments = []
+    
+    for part in command[1:]:
+        if(part.startswith('-')):
+            arguments.append((part, 'dash'))
+        elif(part.startswith('/')):
+            arguments.append((part, 'slash'))
+            
+    return arguments
 
 def is_folder_present(parent_folder, target_folder):
     items = os.listdir(parent_folder)
@@ -88,41 +114,10 @@ def on_submit(event=None):
                     edit_wdiget_text(f"Folder \"{target_folder}\" not found!")
     elif result[0] == "ls" or result[0] in aliases["ls"]:
         
-        output_str = ""
+        print(result)
+        args = parse_arguments(result)
         
-        try:
-            result = subprocess.run(['vol', 'C:'], shell=True, stdout=subprocess.PIPE, text=True, check=True)
-            lines = result.stdout.split("\n")
-
-            if lines:
-                for line in lines:
-                    output_str += line.strip() + "\n"
-
-        except subprocess.CalledProcessError:
-            output_str += "Could not find a volume."
-            
-        output_str += "Directory of " + current_dir + "\n\n"
-
-        files = [item for item in os.listdir(current_dir + "\\")]
-        
-        for file in files:
-            #Full file path
-            full_path = current_dir + "\\" + file
-            
-            #File modification date
-            ti_m = os.path.getmtime(full_path)
-            is_timestamp_utc = True
-            local_timezone = get_localzone()
-            if is_timestamp_utc:
-                dt_object = datetime.datetime.fromtimestamp(ti_m, tz=datetime.timezone.utc)
-                local_dt_object = dt_object.astimezone(local_timezone)
-            else:
-                local_dt_object = datetime.datetime.fromtimestamp(ti_m, tz=local_timezone)
-            
-            m_ti = local_dt_object.strftime('%d/%m/%Y %H:%M')
-            
-            #File path
-            output_str += m_ti + "   " + file + "\n"
+        output_str = ls_command.ls_command(args, current_dir)
 
         edit_wdiget_text(output_str)
     elif result[0] == "exit" or result[0] in aliases["exit"]:
@@ -453,7 +448,7 @@ root.geometry(f"{window_width}x{window_height}")
 root.bind('<Control-Key>', exit_current_state)
 
 entry = tk.Text(root, width=40, height=1, font=("Courier", 12), insertbackground="#FFFFFF", fg="#FFFFFF", bg="#1E1E1E", bd=0)
-entry.insert(tk.END, "C:\\>")
+entry.insert(tk.END, "C:\\Users\\nicok>")
 entry.tag_add("readonly", "1.0", "1.end")
 entry.tag_config("readonly", foreground="#FFFFFF", background="#1E1E1E")
 entry.bind("<Return>", on_submit)
