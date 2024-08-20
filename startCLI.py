@@ -113,8 +113,6 @@ def on_submit(event=None):
                 else:
                     edit_wdiget_text(f"Folder \"{target_folder}\" not found!")
     elif result[0] == "ls" or result[0] in aliases["ls"]:
-        
-        print(result)
         args = parse_arguments(result)
         
         output_str = ls_command.ls_command(args, current_dir)
@@ -382,7 +380,6 @@ def on_submit(event=None):
     entry.insert(tk.END, current_dir + "\\> ")
 
 def remove_trailing_empty_lines(lines):
-    print(lines)
     lines = lines.splitlines()
     
     while lines and lines[-1].strip() == "":
@@ -409,7 +406,6 @@ def prevent_editing(event):
     
 def exit_current_state(event):
     if event.keysym == "x":
-        print(current_state)
         if current_state == EDIT_STATE:
             if open_file == None:
                 edit_wdiget_text("Error editing file. Please try again.")
@@ -477,3 +473,7 @@ text_widget.config(yscrollcommand=scrollbar.set)
 root.after(100, restore_initial_text)
 
 root.mainloop()
+
+log_file = open(r"C:\\Code Files\\Python\\CustomCommandLine\\autorun\\log.txt", "a")
+log_file.write("CLI up and running.\n")
+log_file.flush()

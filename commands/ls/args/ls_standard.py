@@ -93,4 +93,3 @@ def standard_format(current_dir):
     output_str += f"\n{total_folders} Folders, {folder_size} (non-recursive)"
     
     return output_str
-
